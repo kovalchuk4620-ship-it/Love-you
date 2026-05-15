@@ -54,7 +54,7 @@
             requestAnimationFrame(draw);
         }
 
-        window.onclick = () => {
+      const handleInteraction = () => {
             formed = !formed;
             if (!formed) {
                 particles.forEach(p => {
@@ -62,6 +62,11 @@
                     p.ty = Math.random() * h;
                 });
             }
+        };
+
+        window.onclick = handleInteraction;
+        window.ontouchstart = (e) => {
+            handleInteraction();
         };
 
         draw();
